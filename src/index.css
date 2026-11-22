@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-amcor-navy: #00284D;
+  --color-amcor-blue: #003366;
+  --color-amcor-cyan: #009FDF;
+  --color-amcor-green: #009639;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Landscape weighing mode */
+@media (orientation: landscape) and (max-height: 500px) {
+  .landscape-weighing {
+    display: flex !important;
+  }
+  .portrait-only {
+    display: none !important;
+  }
+}
+
+@media print {
+  @page { margin: 4mm; }
+  body { background: #ffffff !important; }
+  .no-print { display: none !important; }
+  .print-only-container {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
